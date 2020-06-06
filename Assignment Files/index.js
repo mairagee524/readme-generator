@@ -89,7 +89,7 @@ inquirer.prompt([
     },
     { 
       type: "input",
-      message: "Describe how a potential client should use this application:",
+      message: "Describe how/when a potential client should use this application:",
       name: "usage"
     },
     { 
@@ -105,7 +105,7 @@ inquirer.prompt([
     },
     { 
       type: "input",
-      message: "If you listed any collaborators above, please list their Github usernames:",
+      message: "If you listed any collaborators above, please list their Github usernames. Again, press [enter] to skip if you did not include any collaborators:",
       name: "collabGithubUsernames"
     },
     { 

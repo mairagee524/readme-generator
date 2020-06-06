@@ -44,6 +44,7 @@ Their Github usernames are ${data.collabGithubUsernames}, respectively.
 
 ## Tests
 
+To run tests for this application, use
 
 \`\`\`
 ${data.test}

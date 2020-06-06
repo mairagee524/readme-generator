@@ -39,8 +39,6 @@ ${data.contributors}
 
 ${data.help}
 
-Their Github usernames are ${data.collabGithubUsernames}, respectively. 
-
 
 ## Tests
 

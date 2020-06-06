@@ -46,3 +46,6 @@ Because this is a practice application, this will be an ongoing project, where I
 
 ### In the `generatemarkdown.js` File
 This file contains all the markup needed to make the README file more stylized. It is comprised of a function that is exported to be part of the `index.js` file. This function `generatemarkdown` has a `return` command with a template literal. This BIG template literal has many markup sections with variables generated from user input. 
+
+## Final Product
+In the end, the user will have stylized README file based on his/her/their input. This generated file is located inside the `Assignment Files` folder. 

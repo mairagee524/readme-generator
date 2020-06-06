@@ -100,13 +100,8 @@ inquirer.prompt([
     },
     { 
       type: "input",
-      message: "What tutorials did you use to complete this project? tutorials? If anyone collaborated with you on this project, what are their names? If none of this applies, press [enter] to skip:",
+      message: "What tutorials did you use to complete this project? tutorials? If anyone collaborated with you on this project, what are their names and Github usernames? If none of this applies, press [enter] to skip:",
       name: "help",
-    },
-    { 
-      type: "input",
-      message: "If you listed any collaborators above, please list their Github usernames. Again, press [enter] to skip if you did not include any collaborators:",
-      name: "collabGithubUsernames"
     },
     { 
       type: "input",

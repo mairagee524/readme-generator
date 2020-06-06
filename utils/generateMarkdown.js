@@ -1,7 +1,6 @@
 function generateMarkdown(data) {
   return `
 # ${data.title}
-${renderLicenseBadge(data.license, data.github, data.title)}
 
 ## Description
 
@@ -31,6 +30,8 @@ ${data.installation}
 \`\`\`
 
 ## Usage
+
+
 `;
 }
 

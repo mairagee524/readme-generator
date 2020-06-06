@@ -56,13 +56,16 @@
 // - A generated README.md file for a project repo.
 // - The URL of the GitHub repository
 
+// Declaring variables to require items
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require('util');
-const writeFileAsync = util.promisify(fs.writeFile);
-
 const markdown = require('../utils/generateMarkdown');
 
+// Promisify
+const writeFileAsync = util.promisify(fs.writeFile);
+
+// Inquirer function
 inquirer.prompt([
     {
       type: "input",
@@ -71,41 +74,63 @@ inquirer.prompt([
     },
     { 
       type: "input",
-      message: "Enter your project description:",
+      message: "Enter your project description. What was your motivation to building this application? What problem does it solve? What did you learn?",
       name: "description"
     },
     { 
       type: "input",
-      message: "Enter your installation:",
+      message: "Write the line of code needed to START your CLI application:",
       name: "installation"
     },
     { 
       type: "input",
-      message: "Enter your project usage:",
+      message: "Please indicate the steps needed to RUN your application:",
+      name: "steps"
+    },
+    { 
+      type: "input",
+      message: "Describe how a potential client should use this application:",
       name: "usage"
     },
     { 
       type: "input",
-      message: "Enter the contributors for the project:",
-      name: "contributors"
+      message: "If you are interested in contributing to this project, please explain how another user may go about doing so: ",
+      name: "contributors",
+      
     },
     { 
       type: "input",
-      message: "Enter your project tests:",
+      message: "What tutorials did you use to complete this project? tutorials? If anyone collaborated with you on this project, what are their names? If none of this applies, press [enter] to skip:",
+      name: "help",
+    },
+    { 
+      type: "input",
+      message: "If you listed any collaborators above, please list their Github usernames:",
+      name: "collabGithubUsernames"
+    },
+    { 
+      type: "input",
+      message: "Write the line of code needed to run a test on your CLI application:",
       name: "test"
     },
     { 
       type: "input",
       message: "Enter your email address:",
       name: "email"
-    }
+    },
+    { 
+      type: "input",
+      message: "Enter your Github username:",
+      name: "username",
+    },
 ])
 
+// Inquirer response
 .then(function(response) {
-  console.log(response);
   return writeFile("README.md", response);
 });
 
+// Function to write file
 function writeFile(fileName, data) {
   const readMeFunction = markdown.generateMarkdown(data);
   writeFileAsync(fileName, readMeFunction);

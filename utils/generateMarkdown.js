@@ -2,6 +2,7 @@
 module.exports.generateMarkdown = function (data) {
   return `# ${data.title}
 
+
 ## Description
 
 ${data.description}
@@ -12,6 +13,7 @@ ${data.description}
 * [Contributing](#Contributing)
 * [Tests](#Tests)
 
+
 ## Installation
 
 To install necessary dependencies, run the following command: 
@@ -20,18 +22,33 @@ To install necessary dependencies, run the following command:
 ${data.installation}
 \`\`\`
 
+${data.steps}
+
+
 ## Usage
 
 ${data.usage}
 
 
-## Contributing
+## Collaborating Efforts
 
-${data.contributers}
+${data.contributors}
+
+
+## Credits
+
+${data.help}
+
+Their Github usernames are ${data.collabGithubUsernames}, respectively. 
+
 
 ## Tests
 
+
+\`\`\`
 ${data.test}
+\`\`\`
+
 
 ## Questions
 

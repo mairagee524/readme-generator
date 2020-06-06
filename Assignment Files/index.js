@@ -56,37 +56,23 @@
 // - A generated README.md file for a project repo.
 // - The URL of the GitHub repository
 
-const generateMarkdown = require('../utils/generateMarkdown')
+const inquirer = require("inquirer");
+const fs = require("fs");
+const util = require('util');
+const writeFileAsync = util.promisify(fs.writeFile);
 
+const markdown = require('../utils/generateMarkdown');
 
-let inquirer = require("inquirer");
-let fs = require("fs");
-
-
-// - Title
-// - Description
-// - Table of Contents
-// - Installation
-// - Usage
-// - Contributing
-// - Tests
-
-inquirer
-  .prompt([
+inquirer.prompt([
     {
       type: "input",
-      message: "Enter your project title:",
+      message: "Enter the title of your project:",
       name: "title"
     },
     { 
       type: "input",
       message: "Enter your project description:",
       name: "description"
-    },
-    { 
-      type: "input",
-      message: "Enter your project table of contents:",
-      name: "tableOfContents"
     },
     { 
       type: "input",
@@ -100,37 +86,27 @@ inquirer
     },
     { 
       type: "input",
-      message: "Enter the contributers for the project:",
-      name: "contributers"
+      message: "Enter the contributors for the project:",
+      name: "contributors"
     },
     { 
       type: "input",
       message: "Enter your project tests:",
       name: "test"
+    },
+    { 
+      type: "input",
+      message: "Enter your email address:",
+      name: "email"
     }
-  ])
+])
 
-  .then(function(response) {
-   console.log(response);
-
-
-   let data = `
-   Title: ${response.title}
-   Description: ${response.description}
-   Table of Contents: ${response.tableOfContents}
-   Installation: ${response.installation}
-   Usage: ${response.usage}
-   Contributers: ${response.contributers}
-   Tests: ${response.test}
-   `;
-
-   writeFile(data);
+.then(function(response) {
+  console.log(response);
+  return writeFile("README.md", response);
 });
 
-function writeFile(data) {
-    fs.writeFile("README.md", data, function (err) {
-        if (err) throw err;
-        console.log('The file has been saved!');
-    })
+function writeFile(fileName, data) {
+  const readMeFunction = markdown.generateMarkdown(data);
+  writeFileAsync(fileName, readMeFunction);
 }
-

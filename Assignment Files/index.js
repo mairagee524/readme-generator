@@ -128,5 +128,6 @@ inquirer.prompt([
 // Function to write file
 function writeFile(fileName, data) {
   const readMeFunction = markdown.generateMarkdown(data);
+  console.log('The file has been saved!');
   writeFileAsync(fileName, readMeFunction);
 }

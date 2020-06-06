@@ -20,7 +20,7 @@ To install necessary dependencies, run the following command:
 npm install
 ```
 
-After typing `npm install` the developer will then type `node index.js` to start the CLI application. The CLI application will have a series of questions that the user will have to answer.
+After typing `npm install` the developer will then type `node index.js` to start the CLI application. The CLI application will have a series of questions that the user will have to answer. 
 
 
 ## Usage

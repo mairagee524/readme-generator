@@ -21,18 +21,18 @@ There are two main files that were used to make this application possible: `inde
 ### In the `index.js` File
 At the beginning of the `index.js` file, there are many `const` variables that calls to require certain files as a way to import them to this file: 
 
-\`\`\`
+```
 const inquirer = require("inquirer");
 const fs = require("fs");
 const util = require('util');
 const markdown = require('../utils/generateMarkdown');
-\`\`\`
+```
 
 One more `const` is to promisify the `.writeFile()` function. 
 
-\`\`\`
+```
 const writeFileAsync = util.promisify(fs.writeFile);
-\`\`\`
+```
 
 After, the `inquirer.prompt[()]` function is invoked, where a series of questions will display on the command line and the user will answer them all. The user input is then manipulated to be part of the `generatemarkdown.js` file with a `.then()` function, that returns a response (the user input, for that matter).
 
